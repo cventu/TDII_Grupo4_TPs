@@ -39,7 +39,7 @@
 
 /*==================[inclusions]=============================================*/
 
-#include "../../tp1/inc/main.h"
+#include "main.h"
 
 #include "board.h"
 
@@ -63,6 +63,8 @@ static void pausems(uint32_t t);
 
 /** @brief used for delay counter */
 static uint32_t pausems_count;
+static uint32_t Frecuencia= 1;
+static uint32_t Five_count= 0;
 
 /*==================[external data definition]===============================*/
 
@@ -87,7 +89,74 @@ static void pausems(uint32_t t)
 
 void SysTick_Handler(void)
 {
-	if(pausems_count > 0) pausems_count--;
+	if(Five_count< 10*Frecuencia)
+	{
+
+		if(Frecuencia==1)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==2)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==3)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==4)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==5)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==6)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==7)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==8)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==9)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+		if(Frecuencia==10)
+			{
+			if(pausems_count == 500) pausems_count= pausems_count/Frecuencia;
+			if(pausems_count > 0) pausems_count=pausems_count-1;
+			if(pausems_count == 0) Five_count=Five_count+1;
+			}
+
+
+	}
+	else {Five_count=0; Frecuencia= Frecuencia+1;}
+	if(Frecuencia>10) Frecuencia=1;
 }
 
 int main(void)
@@ -104,3 +173,4 @@ int main(void)
 /** @} doxygen end group definition */
 
 /*==================[end of file]============================================*/
+
